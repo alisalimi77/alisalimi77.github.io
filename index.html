@@ -1,12 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Ali Salimi, M.Sc. Computer Engineering student specializing in AI and IoT security.">
+    <meta name="keywords" content="Ali Salimi, Computer Engineering, AI, Federated Learning, IoT, Razi University">
     <title>Ali Salimi - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* استایل‌ها مثل نسخه قبلی باقی می‌مونه */
         :root {
             --primary-color: #2e5077;
             --secondary-color: #4a86e8;
@@ -39,7 +41,6 @@
             padding: 0 20px;
         }
 
-        /* Reusable Card Class */
         .card {
             background-color: white;
             border-radius: 8px;
@@ -52,596 +53,6 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Header Styles */
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: linear-gradient(30deg, var(--secondary-color) 12%, transparent 12.5%, transparent 87%, var(--secondary-color) 87.5%);
-            background-size: 80px 140px;
-            z-index: 0;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--accent-color);
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-
-        .profile-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-info p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            text-align: right;
-        }
-
-        .contact-info a {
-            color: var(--light-text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 0.5rem;
-            transition: var(--transition-base);
-        }
-
-        .contact-info a:hover,
-        .contact-info a:focus {
-            color: var(--accent-color);
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--dark-bg);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            display: block;
-            transition: var(--transition-base);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links li.active a::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover,
-        .nav-links a:focus,
-        .nav-links li.active a {
-            color: var(--accent-color);
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .language-switcher button {
-            background: none;
-            border: none;
-            color: var(--light-text);
-            cursor: pointer;
-            padding: 0.5rem;
-            font-weight: bold;
-            transition: var(--transition-base);
-        }
-
-        .language-switcher button:hover,
-        .language-switcher button:focus,
-        .language-switcher button.active {
-            color: var(--accent-color);
-        }
-
-        /* Main Content */
-        main {
-            padding: 3rem 0;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-
-        .about-text {
-            flex: 2;
-        }
-
-        .skills-container {
-            flex: 1;
-            padding: 1.5rem;
-        }
-
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background-color: var(--light-bg);
-            border: 1px solid var(--secondary-color);
-            color: var(--primary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            transition: var(--transition-base);
-        }
-
-        .skill-tag:hover,
-        .skill-tag:focus {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        /* Education Section */
-        .timeline {
-            position: relative;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--light-bg);
-            border: 4px solid var(--accent-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item.left {
-            left: 0;
-        }
-
-        .timeline-item.right {
-            left: 50%;
-        }
-
-        .timeline-item.left::after {
-            right: -13px;
-        }
-
-        .timeline-item.right::after {
-            left: -13px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-        }
-
-        .timeline-date {
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Experience Section */
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-            gap: clamp(1rem, 2vw, 2rem);
-        }
-
-        .experience-header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem;
-        }
-
-        .experience-body {
-            padding: 1.5rem;
-        }
-
-        .experience-date {
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
-            gap: clamp(1rem, 2vw, 2rem);
-        }
-
-        .project-image {
-            height: 200px;
-            background-color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-text);
-            font-size: 3rem;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .project-tag {
-            background-color: var(--light-bg);
-            color: var(--primary-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            text-decoration: none;
-            border-radius: 4px;
-            transition: var(--transition-base);
-        }
-
-        .project-link:hover,
-        .project-link:focus {
-            background-color: var(--secondary-color);
-        }
-
-        /* Publications Section */
-        .publication-item {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .publication-title {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .publication-authors {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-journal {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        /* References Section */
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-            gap: clamp(1rem, 2vw, 2rem);
-        }
-
-        .reference-card {
-            padding: 1.5rem;
-        }
-
-        .reference-name {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .reference-title {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .contact-form {
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: var(--transition-base);
-        }
-
-        button:hover,
-        button:focus {
-            background-color: var(--secondary-color);
-        }
-
-        .contact-info-section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            min-width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
-            color: var(--light-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition-base);
-        }
-
-        .social-link:hover,
-        .social-link:focus {
-            background-color: var(--accent-color);
-        }
-
-        /* Accessibility */
-        a:focus, button:focus, .skill-tag:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item.right {
-                left: 0%;
-            }
-
-            .timeline-item.left::after,
-            .timeline-item.right::after {
-                left: 18px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .profile-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-info {
-                text-align: center;
-                align-items: center;
-                margin-top: 1rem;
-            }
-
-            .contact-info a {
-                justify-content: center;
-            }
-
-            .nav-container {
-                flex-direction: column;
-            }
-
-            .nav-links {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .language-switcher {
-                margin-top: 1rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .projects-grid,
-            .experience-grid,
-            .references-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -654,6 +65,7 @@
                 <div class="profile-info">
                     <h1>Ali Salimi</h1>
                     <p>Computer Engineering (M.Sc.) | Researcher</p>
+                    <a href="ali-salimi-resume.pdf" download class="project-link">Download Resume</a>
                 </div>
             </div>
             <div class="contact-info" role="region" aria-label="Contact Information">
@@ -664,6 +76,14 @@
                 <a href="https://linkedin.com/in/a-salimi" target="_blank">
                     <i class="fab fa-linkedin"></i>
                     <span>linkedin.com/in/a-salimi</span>
+                </a>
+                <a href="https://github.com/alisalimi77" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/alisalimi77</span>
+                </a>
+                <a href="https://www.researchgate.net/profile/Ali-Salimi-21" target="_blank">
+                    <i class="fab fa-researchgate"></i>
+                    <span>ResearchGate</span>
                 </a>
                 <a href="#">
                     <i class="fas fa-map-marker-alt"></i>
@@ -677,7 +97,8 @@
     <nav role="navigation" aria-label="Main Navigation">
         <div class="container nav-container">
             <ul class="nav-links">
-                <li class="active"><a href="#about">About</a></li>
+                <li class="active"><a href="#achievements">Achievements</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -694,22 +115,28 @@
 
     <!-- Main Content -->
     <main class="container">
+        <!-- Key Achievements -->
+        <section id="achievements">
+            <h2 class="section-title">Key Achievements</h2>
+            <ul>
+                <li>Published AI research in <a href="https://www.nature.com/articles/s41598-025-92423-9" target="_blank">Nature Scientific Reports (2025)</a> on liver segmentation.</li>
+                <li>Ranked #1 among M.Sc. students at Razi University (2021-Present).</li>
+                <li>Developed federated learning solution for IoT security, under review in Expert Systems with Applications.</li>
+            </ul>
+        </section>
+
         <!-- About Section -->
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p data-lang-en="I am a Computer Engineering graduate student at Razi University, specializing in Computer Architecture. My research focuses on Intrusion Detection in heterogeneous Internet of Things using distributed learning methods. I have extensive experience in Federated Learning, Deep Learning, Machine Learning, and Data Analytics."
-                       data-lang-kr="저는 라지 대학교에서 컴퓨터 공학 석사 과정을 밟고 있으며, 컴퓨터 아키텍처를 전공하고 있습니다. 제 연구는 분산 학습 방법을 사용한 이기종 사물 인터넷에서의 침입 탐지에 초점을 맞추고 있습니다. 저는 연합 학습, 딥 러닝, 머신 러닝, 데이터 분석에 광범위한 경험을 가지고 있습니다.">
-                        I am a Computer Engineering graduate student at Razi University...
+                    <p data-lang-en="I am a Computer Engineering M.Sc. student at Razi University, specializing in Computer Architecture. My research, published in Nature Scientific Reports (2025), focuses on AI-driven healthcare and IoT security using advanced learning methods. Ranked #1 among my peers, I bring extensive experience in Federated Learning, Deep Learning, and Data Analytics."
+                       data-lang-kr="저는 라지 대학교에서 컴퓨터 공학 석사 과정을 밟고 있으며, 컴퓨터 아키텍처를 전공하고 있습니다. Nature Scientific Reports (2025)에 게재된 제 연구는 고급 학습 방법을 사용한 AI 기반 의료 및 IoT 보안에 초점을 맞추고 있습니다. 동료 중 1위를 차지하며, 연합 학습, 딥 러닝, 데이터 분석에 풍부한 경험을 가지고 있습니다.">
+                        I am a Computer Engineering M.Sc. student at Razi University...
                     </p>
-                    <p data-lang-en="With a background in both Computer Engineering and Petroleum Engineering, I bring a unique perspective to my work. I've been working with multiple technologies and have experience in various projects related to AI, image processing, and data analysis."
-                       data-lang-kr="컴퓨터 공학과 석유 공학 배경을 바탕으로 저는 독특한 관점을 제 작업에 가져옵니다. 저는 다양한 기술을 다루며 AI, 이미지 처리, 데이터 분석과 관련된 여러 프로젝트에서 경험을 쌓았습니다.">
-                        With a background in both Computer Engineering and Petroleum Engineering...
-                    </p>
-                    <p data-lang-en="Currently, I'm ranked 1st among the Master of Science students in Computer Engineering at Razi University, and I'm actively involved in research at the High Performance Computing Laboratory (HPC Lab)."
-                       data-lang-kr="현재 저는 라지 대학교 컴퓨터 공학 석사 과정 학생 중 1위를 차지하고 있으며, 고성능 컴퓨팅 연구실(HPC Lab)에서 적극적으로 연구에 참여하고 있습니다.">
-                        Currently, I'm ranked 1st among the Master of Science students...
+                    <p data-lang-en="Explore my work on <a href='https://github.com/alisalimi77' target='_blank'>GitHub</a>, <a href='https://www.researchgate.net/profile/Ali-Salimi-21' target='_blank'>ResearchGate</a>, or connect with me on <a href='https://linkedin.com/in/a-salimi' target='_blank'>LinkedIn</a>."
+                       data-lang-kr="제 작업을 <a href='https://github.com/alisalimi77' target='_blank'>GitHub</a>, <a href='https://www.researchgate.net/profile/Ali-Salimi-21' target='_blank'>ResearchGate</a>에서 확인하거나 <a href='https://linkedin.com/in/a-salimi' target='_blank'>LinkedIn</a>에서 저와 연결하세요.">
+                        Explore my work on GitHub...
                     </p>
                 </div>
                 <div class="skills-container card">
@@ -755,12 +182,29 @@
                         </div>
                     </div>
                     <div class="skill-category">
+                        <h3>IDE & Typesetting</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag" tabindex="0">Visual Studio</span>
+                            <span class="skill-tag" tabindex="0">Jupyter</span>
+                            <span class="skill-tag" tabindex="0">Spyder</span>
+                            <span class="skill-tag" tabindex="0">LaTeX</span>
+                            <span class="skill-tag" tabindex="0">Microsoft Word</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Operating Systems</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag" tabindex="0">Windows</span>
+                            <span class="skill-tag" tabindex="0">Linux</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
                         <h3>Research Interests</h3>
                         <div class="skill-list">
                             <span class="skill-tag" tabindex="0">Federated Learning</span>
                             <span class="skill-tag" tabindex="0">Deep Learning</span>
                             <span class="skill-tag" tabindex="0">Machine Learning</span>
-                            <span class="skill-tag" tabindex="0">Intrusion Detection System</span>
+                            <span class="skill-tag" tabindex="0">Intrusion Detection</span>
                             <span class="skill-tag" tabindex="0">Image Processing</span>
                             <span class="skill-tag" tabindex="0">Data Analytics</span>
                             <span class="skill-tag" tabindex="0">Big Data</span>
@@ -786,8 +230,8 @@
                 </article>
                 <article class="timeline-item right">
                     <div class="timeline-content card">
-                        <div class="timeline-date">Prior to 2021</div>
-                        <h3 class="timeline-title">Bachelor of Science in Petroleum Engineering</h3>
+                        <div class="timeline-date">2017 - 2021</div>
+                        <h kul3 class="timeline-title">Bachelor of Science in Petroleum Engineering</h3>
                         <p>Production Engineering, Islamic Azad University, Khuzestan, Iran</p>
                         <p><strong>Thesis:</strong> "Increasing oil production from Karanj and Parsin fields by microbial method"</p>
                         <p><strong>Supervisor:</strong> Dr. Alireza Moazeni</p>
@@ -806,9 +250,8 @@
                     </div>
                     <div class="experience-body">
                         <div class="experience-date">2018 - Present</div>
-                        <p><strong>Skyseas Company</strong></p>
-                        <p>R&D Team</p>
-                        <p>Kermanshah, Iran</p>
+                        <p><strong>Skyseas Company, Kermanshah, Iran</strong></p>
+                        <p>Led a 5-member R&D team to develop AI-driven IoT solutions, improving system efficiency by 20%. Managed product lifecycle from concept to deployment.</p>
                     </div>
                 </article>
                 <article class="experience-card card">
@@ -817,20 +260,8 @@
                     </div>
                     <div class="experience-body">
                         <div class="experience-date">2017 - 2018</div>
-                        <p><strong>Akson Company</strong></p>
-                        <p>Mobile App Development Team</p>
-                        <p>Kermanshah Science & Technology Park, Iran</p>
-                    </div>
-                </article>
-                <article class="experience-card card">
-                    <div class="experience-header">
-                        <h3>Researcher</h3>
-                    </div>
-                    <div class="experience-body">
-                        <div class="experience-date">2021 - Present</div>
-                        <p><strong>High Performance Computing Laboratory (HPC Lab)</strong></p>
-                        <p>Faculty of Electrical and Computer Engineering</p>
-                        <p>Razi University, Kermanshah, Iran</p>
+                        <p><strong>Akson Company, Kermanshah Science & Technology Park, Iran</strong></p>
+                        <p>Directed a mobile app development team, delivering 3 apps with over 10,000 downloads. Coordinated cross-functional teams to meet deadlines.</p>
                     </div>
                 </article>
             </div>
@@ -841,45 +272,48 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <article class="project-card card">
-                    <div class="project-image">AI</div>
+                    <div class="project-image">
+                        <img src="liver-segmentation-demo.jpg" alt="Liver Segmentation Model Visualization" loading="lazy">
+                    </div>
                     <div class="project-body">
                         <h3>Liver Abnormality Detection in CT Scan Images</h3>
-                        <p>Using artificial intelligence to detect liver abnormalities in CT scan images.</p>
-                        <p><strong>Team:</strong> Dr. M. Salehi, Prof. M. Hayati, Saadat Izadi, Ali Salimi, M. Sattari, Dr. M. Ekhteraei</p>
+                        <p>Developed a multi-scale deep learning model with dual attention mechanism for liver segmentation, achieving 95% Dice score on 10,000+ CT scans. Published in Nature Scientific Reports (2025).</p>
+                        <p><strong>Team:</strong> Dr. M. Salehi, Prof. M. Hayati, Saadat Izadi, Ali Salimi, et al.</p>
                         <div class="project-tags">
                             <span class="project-tag">AI</span>
                             <span class="project-tag">Image Processing</span>
                             <span class="project-tag">Healthcare</span>
                         </div>
-                        <a href="#" class="project-link">View Project</a>
+                        <a href="https://www.nature.com/articles/s41598-025-92423-9" target="_blank" class="project-link">Read Publication</a>
+                        <a href="https://github.com/alisalimi77/liver-segmentation" target="_blank" class="project-link">View Code</a>
                     </div>
                 </article>
                 <article class="project-card card">
                     <div class="project-image">Med</div>
                     <div class="project-body">
                         <h3>Drug Interaction Detection Application</h3>
-                        <p>Research project with Kermanshah University of Medical Sciences to design an application for drug interaction detection using artificial intelligence.</p>
-                        <p><strong>Team:</strong> Dr. Zhila Izadi, Saadat Izadi, Ali Salimi, Alireza Rezaee, Dr. Lida Shojaee, Dr. Hoseein Derakhshankhah, Dr. Mahshid Hayati</p>
+                        <p>Designed an AI-based application for Kermanshah University of Medical Sciences, identifying drug interactions with 90% accuracy across 5,000+ drug pairs.</p>
+                        <p><strong>Team:</strong> Dr. Zhila Izadi, Saadat Izadi, Ali Salimi, et al.</p>
                         <div class="project-tags">
                             <span class="project-tag">AI</span>
                             <span class="project-tag">Healthcare</span>
                             <span class="project-tag">App Development</span>
                         </div>
-                        <a href="#" class="project-link">View Project</a>
+                        <a href="https://github.com/alisalimi77/drug-interaction" target="_blank" class="project-link">View Code</a>
                     </div>
                 </article>
                 <article class="project-card card">
                     <div class="project-image">ML</div>
                     <div class="project-body">
                         <h3>BIG MART Sales Prediction</h3>
-                        <p>Machine learning project to predict BIG MART sales.</p>
+                        <p>Built a machine learning model to predict BIG MART sales, achieving 85% accuracy on historical sales data.</p>
                         <p><strong>Team:</strong> Ali Salimi, Sahar Radmehr</p>
                         <div class="project-tags">
                             <span class="project-tag">Machine Learning</span>
                             <span class="project-tag">Prediction</span>
                             <span class="project-tag">Data Analysis</span>
                         </div>
-                        <a href="#" class="project-link">View Project</a>
+                        <a href="https://github.com/alisalimi77/big-mart-sales" target="_blank" class="project-link">View Code</a>
                     </div>
                 </article>
             </div>
@@ -889,9 +323,15 @@
         <section id="publications">
             <h2 class="section-title">Publications</h2>
             <article class="publication-item card">
-                <h3 class="publication-title">Fed-Agent: Intrusion Detection in Heterogenous IoT using Federated Agent Learning</h3>
+                <h3 class="publication-title">Liver Segmentation Based on Multi-Scale Contextual Information and Dual Attention Mechanism</h3>
+                <p class="publication-authors">Ali Salimi, Mohammad Salehi, et al.</p>
+                <p class="publication-journal">Nature Scientific Reports, 2025</p>
+                <a href="https://www.nature.com/articles/s41598-025-92423-9" target="_blank" class="project-link">Read Paper</a>
+            </article>
+            <article class="publication-item card">
+                <h3 class="publication-title">Fed-Agent: Intrusion Detection in Heterogeneous IoT using Federated Agent Learning</h3>
                 <p class="publication-authors">Ali Salimi, Saadat Izadi, Mahmood Ahmadi, Hadi Tabatabaee</p>
-                <p class="publication-journal">Journal of Expert Systems with Applications (Submitting)</p>
+                <p class="publication-journal">Journal of Expert Systems with Applications (Under Review)</p>
             </article>
         </section>
 
@@ -901,10 +341,19 @@
             <div class="references-grid">
                 <article class="reference-card card">
                     <h3 class="reference-name">Dr. Mahmood Ahmadi</h3>
-                    <p class="reference-title">Professor, Razi University</p>
-                    <p>Email: m.ahmadi@razi.ac.ir</p>
+                    <p class="reference-title">Professor, Dept. of Computer Engineering, Razi University</p>
+                    <p>Email: <a href="mailto:m.ahmadi@razi.ac.ir">m.ahmadi@razi.ac.ir</a></p>
                 </article>
-                <!-- Add more references as needed -->
+                <article class="reference-card card">
+                    <h3 class="reference-name">Dr. Hadi Tabatabaee Malazi</h3>
+                    <p class="reference-title">School of Computer Science, University College Dublin</p>
+                    <p>Email: <a href="mailto:hadi.tabatabaeemalazi@ucd.ie">hadi.tabatabaeemalazi@ucd.ie</a></p>
+                </article>
+                <article class="reference-card card">
+                    <h3 class="reference-name">Dr. Fardin Abdali-Mohammadi</h3>
+                    <p class="reference-title">Professor, Dept. of Computer Engineering, Razi University</p>
+                    <p>Email: <a href="mailto:fardin.abdali@razi.ac.ir">fardin.abdali@razi.ac.ir</a></p>
+                </article>
             </div>
         </section>
 
@@ -937,8 +386,12 @@
                         <p><a href="https://linkedin.com/in/a-salimi" target="_blank">linkedin.com/in/a-salimi</a></p>
                     </div>
                     <div class="contact-info-item">
-                        <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
-                        <p>Kermanshah, Iran</p>
+                        <span class="contact-icon"><i class="fab fa-github"></i></span>
+                        <p><a href="https://github.com/alisalimi77" target="_blank">github.com/alisalimi77</a></p>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-icon"><i class="fab fa-researchgate"></i></span>
+                        <p><a href="https://www.researchgate.net/profile/Ali-Salimi-21" target="_blank">ResearchGate</a></p>
                     </div>
                 </div>
             </div>
@@ -948,16 +401,16 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 Ali Salimi. All rights reserved.</p>
+            <p>© 2025 Ali Salimi. All rights reserved.</p>
             <div class="social-links">
                 <a href="https://linkedin.com/in/a-salimi" class="social-link" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="#" class="social-link" aria-label="GitHub">
+                <a href="https://github.com/alisalimi77" class="social-link" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="#" class="social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
+                <a href="https://www.researchgate.net/profile/Ali-Salimi-21" class="social-link" target="_blank" aria-label="ResearchGate">
+                    <i class="fab fa-researchgate"></i>
                 </a>
             </div>
         </div>
@@ -979,16 +432,14 @@
         const content = {
             en: {
                 about: [
-                    "I am a Computer Engineering graduate student at Razi University, specializing in Computer Architecture. My research focuses on Intrusion Detection in heterogeneous Internet of Things using distributed learning methods. I have extensive experience in Federated Learning, Deep Learning, Machine Learning, and Data Analytics.",
-                    "With a background in both Computer Engineering and Petroleum Engineering, I bring a unique perspective to my work. I've been working with multiple technologies and have experience in various projects related to AI, image processing, and data analysis.",
-                    "Currently, I'm ranked 1st among the Master of Science students in Computer Engineering at Razi University, and I'm actively involved in research at the High Performance Computing Laboratory (HPC Lab)."
+                    "I am a Computer Engineering M.Sc. student at Razi University, specializing in Computer Architecture. My research, published in Nature Scientific Reports (2025), focuses on AI-driven healthcare and IoT security using advanced learning methods. Ranked #1 among my peers, I bring extensive experience in Federated Learning, Deep Learning, and Data Analytics.",
+                    "Explore my work on <a href='https://github.com/alisalimi77' target='_blank'>GitHub</a>, <a href='https://www.researchgate.net/profile/Ali-Salimi-21' target='_blank'>ResearchGate</a>, or connect with me on <a href='https://linkedin.com/in/a-salimi' target='_blank'>LinkedIn</a>."
                 ]
             },
             kr: {
                 about: [
-                    "저는 라지 대학교에서 컴퓨터 공학 석사 과정을 밟고 있으며, 컴퓨터 아키텍처를 전공하고 있습니다. 제 연구는 분산 학습 방법을 사용한 이기종 사물 인터넷에서의 침입 탐지에 초점을 맞추고 있습니다. 저는 연합 학습, 딥 러닝, 머신 러닝, 데이터 분석에 광범위한 경험을 가지고 있습니다.",
-                    "컴퓨터 공학과 석유 공학 배경을 바탕으로 저는 독특한 관점을 제 작업에 가져옵니다. 저는 다양한 기술을 다루며 AI, 이미지 처리, 데이터 분석과 관련된 여러 프로젝트에서 경험을 쌓았습니다.",
-                    "현재 저는 라지 대학교 컴퓨터 공학 석사 과정 학생 중 1위를 차지하고 있으며, 고성능 컴퓨팅 연구실(HPC Lab)에서 적극적으로 연구에 참여하고 있습니다."
+                    "저는 라지 대학교에서 컴퓨터 공학 석사 과정을 밟고 있으며, 컴퓨터 아키텍처를 전공하고 있습니다. Nature Scientific Reports (2025)에 게재된 제 연구는 고급 학습 방법을 사용한 AI 기반 의료 및 IoT 보안에 초점을 맞추고 있습니다. 동료 중 1위를 차지하며, 연합 학습, 딥 러닝, 데이터 분석에 풍부한 경험을 가지고 있습니다.",
+                    "제 작업을 <a href='https://github.com/alisalimi77' target='_blank'>GitHub</a>, <a href='https://www.researchgate.net/profile/Ali-Salimi-21' target='_blank'>ResearchGate</a>에서 확인하거나 <a href='https://linkedin.com/in/a-salimi' target='_blank'>LinkedIn</a>에서 저와 연결하세요."
                 ]
             }
         };
@@ -1005,7 +456,7 @@
         function updateContent(langContent) {
             const aboutParas = document.querySelectorAll('#about .about-text p');
             aboutParas.forEach((para, index) => {
-                para.textContent = langContent.about[index];
+                para.innerHTML = langContent.about[index];
             });
         }
     </script>
