@@ -1,66 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Salimi | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Salimi Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Ali Salimi</h1>
-        <p>Computer Engineer | AI & Data Science Enthusiast</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a Master's student in Computer Engineering at Razi University. My research focuses on Federated Learning, Deep Learning, and Intrusion Detection Systems in IoT. I'm passionate about solving complex problems with data and intelligent systems.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Python, C++, C#</li>
-            <li><strong>Libraries:</strong> PyTorch, TensorFlow, Keras, NumPy, Pandas, Pyspark, etc.</li>
-            <li><strong>Databases:</strong> MySQL, SQL Server</li>
-            <li><strong>Tools:</strong> Tableau, Power BI, Spark, Hadoop, Docker</li>
-            <li><strong>OS:</strong> Windows, Linux</li>
+  <!-- Header and Navigation -->
+  <header>
+    <nav>
+      <div class="container">
+        <h1 class="logo">Ali Salimi</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </section>
+      </div>
+    </nav>
+  </header>
 
-    <section id="projects">
-        <h2>Projects</h2>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <h2>Welcome to Ali Salimi's Portfolio</h2>
+      <p>Computer Engineer | Machine Learning & AI Specialist</p>
+      <a href="#resume" class="btn">View Resume</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am Ali Salimi, a Computer Engineer with expertise in Machine Learning, Deep Learning, Image Processing, and Data Analytics. I have extensive research and professional experience in developing innovative solutions for modern challenges.</p>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <div class="container">
+      <h2>Resume</h2>
+      <div class="resume-content">
+        <h3>Education</h3>
+        <p><strong>B.Sc. in Computer Engineering</strong> – Razi University, Kermanshah, Iran</p>
+        <p><strong>M.Sc. in Computer Engineering</strong> – Razi University, Kermanshah, Iran<br>
+           Thesis: “Intrusion Detection in Heterogeneous IoT using Distributed Learning Methods”</p>
+           
+        <h3>Work Experience</h3>
+        <p><strong>Project Manager</strong> – Skyseas Company (2018-Present)</p>
+        <p><strong>Product Manager</strong> – Akson Company (2017-2018)</p>
+        
+        <h3>Skills</h3>
         <ul>
-            <li>📱 Drug Interaction Detection App using AI (2023–Present)</li>
-            <li>🧠 Liver Abnormality Detection in CT Scans (2023)</li>
-            <li>📊 Big Mart Sales Prediction using Machine Learning (2022)</li>
+          <li>Machine Learning, Deep Learning, Image Processing, Data Analytics</li>
+          <li>Programming: Python, C++, C#.NET</li>
+          <li>Tools: TensorFlow, PyTorch, Keras, Tableau, PowerBI</li>
         </ul>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-            <li><em>Fed-Agent: Intrusion Detection in Heterogeneous IoT using Federated Agent Learning</em> – Journal of Expert Systems with Applications (Submitted)</li>
-        </ul>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-item">
+          <h3>Liver Abnormality Detection in CT Scans</h3>
+          <p>Developed an AI-driven solution for detecting abnormalities in liver CT scans.</p>
+        </div>
+        <div class="project-item">
+          <h3>Drug Interaction Detection Application</h3>
+          <p>Designed a mobile application to identify drug interactions using machine learning techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: a.salimi@stu.razi.ac.ir</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/a-salimi">linkedin.com/in/a-salimi</a></p>
-        <p>Google Scholar: <a href="https://scholar.google.com/citations?user=nLI3EwoAAAAJ&hl=en">View Profile</a></p>
-    </section>
+  <!-- Publications Section -->
+  <section id="publications">
+    <div class="container">
+      <h2>Publications</h2>
+      <ul>
+        <li>"Fed-Agent: Intrusion Detection in Heterogeneous IoT using Federated Agent Learning" – Submitted to the Journal of Expert Systems with Applications</li>
+      </ul>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Ali Salimi. All rights reserved.</p>
-    </footer>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>If you would like to get in touch, please email me at <a href="mailto:a.salimi@stu.razi.ac.ir">a.salimi@stu.razi.ac.ir</a> or connect on <a href="https://linkedin.com/in/a-salimi" target="_blank">LinkedIn</a>.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Ali Salimi. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
 </body>
 </html>
